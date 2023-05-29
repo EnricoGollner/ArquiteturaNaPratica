@@ -12,7 +12,7 @@ protocol UserBusinessProtocol {
     func login(email: String, password: String, completionHandler: @escaping (Result<UserModel, Error>) -> Void)
 }
 
-class UserBusiness :UserBusinessProtocol {
+class UserBusiness: UserBusinessProtocol {
     let provider: UserProvider = UserProvider()
     
     func login(email: String, password: String, completionHandler: @escaping (Result<UserModel, Error>) -> Void) {
@@ -39,7 +39,7 @@ class UserBusiness :UserBusinessProtocol {
     
     private func getParams(_ email: String, _ password: String) -> [AnyHashable: Any] {
         let userModel = UserModel(email: email, password: password)
-        let params: [AnyHashable: Any] = [Constants.ParametersKeys.body:  [Constants.ParametersKeys.userModel: userModel]]
+        let params: [AnyHashable: Any] = [Constants.ParametersKeys.body: [Constants.ParametersKeys.userModel: userModel]]
         
         return params
     }

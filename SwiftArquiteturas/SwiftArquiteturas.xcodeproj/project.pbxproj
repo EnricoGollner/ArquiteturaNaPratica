@@ -17,6 +17,7 @@
 		2A79AF202A22815C004CE31C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A79AF1F2A22815C004CE31C /* UserModel.swift */; };
 		2A79AF232A228531004CE31C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A79AF222A228531004CE31C /* Constants.swift */; };
 		2A8A8D462A23091800F23D81 /* UserBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8A8D452A23091800F23D81 /* UserBusiness.swift */; };
+		2ABA7E662A246A19003FFDD6 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABA7E652A246A19003FFDD6 /* UserManager.swift */; };
 		FD104207CF3F8060F25E254B /* Pods_SwiftArquiteturas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889991BE7C0452D9F40A7FF6 /* Pods_SwiftArquiteturas.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		2A79AF1F2A22815C004CE31C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		2A79AF222A228531004CE31C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2A8A8D452A23091800F23D81 /* UserBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBusiness.swift; sourceTree = "<group>"; };
+		2ABA7E652A246A19003FFDD6 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		55A2CCD6F5266F2108B10DC4 /* Pods-SwiftArquiteturas.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftArquiteturas.release.xcconfig"; path = "Target Support Files/Pods-SwiftArquiteturas/Pods-SwiftArquiteturas.release.xcconfig"; sourceTree = "<group>"; };
 		889991BE7C0452D9F40A7FF6 /* Pods_SwiftArquiteturas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftArquiteturas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED4E24FAE4469537A9FBC5CE /* Pods-SwiftArquiteturas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftArquiteturas.debug.xcconfig"; path = "Target Support Files/Pods-SwiftArquiteturas/Pods-SwiftArquiteturas.debug.xcconfig"; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		2A40960E2A21CD8D00B45D07 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				2ABA7E652A246A19003FFDD6 /* UserManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				2A79AF202A22815C004CE31C /* UserModel.swift in Sources */,
 				2A79AF1D2A2280A9004CE31C /* UserProvider.swift in Sources */,
 				2A79AF232A228531004CE31C /* Constants.swift in Sources */,
+				2ABA7E662A246A19003FFDD6 /* UserManager.swift in Sources */,
 				2A8A8D462A23091800F23D81 /* UserBusiness.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
