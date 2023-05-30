@@ -2,7 +2,7 @@
 //  UserBusiness.swift
 //  SwiftArquiteturas
 //
-//  Created by Enrico Sousa Gollner on 28/05/23.
+//  Created by Enrico Sousa Gollner on 30/05/23.
 //
 
 import Foundation
@@ -45,5 +45,3 @@ class UserBusiness: UserBusinessProtocol {
     }
     
 }
-
-

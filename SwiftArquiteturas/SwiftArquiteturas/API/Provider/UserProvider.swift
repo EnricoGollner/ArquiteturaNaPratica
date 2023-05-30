@@ -2,7 +2,7 @@
 //  UserProvider.swift
 //  SwiftArquiteturas
 //
-//  Created by Enrico Sousa Gollner on 27/05/23.
+//  Created by Enrico Sousa Gollner on 30/05/23.
 //
 
 import FirebaseAuth
@@ -21,13 +21,12 @@ class UserProvider: UserProviderProtocol {
         let userModel = body[Constants.ParametersKeys.userModel] as! UserModel
         
         self.auth.signIn(withEmail: userModel.email, password: userModel.password) { (result, error) in
-            if let error {
+            if let error = error {
                 completionHandler(.failure(error))
             } else {
                 completionHandler(.success(userModel))
             }
         }
-        
     }
     
     func register(parameters: [AnyHashable : Any], completionHandler: @escaping (Result<UserModel, Error>) -> Void) {
@@ -35,7 +34,7 @@ class UserProvider: UserProviderProtocol {
         let userModel = body[Constants.ParametersKeys.userModel] as! UserModel
         
         self.auth.createUser(withEmail: userModel.email, password: userModel.password) { (result, error) in
-            if let error {
+            if let error = error {
                 completionHandler(.failure(error))
             } else {
                 completionHandler(.success(userModel))
@@ -44,4 +43,3 @@ class UserProvider: UserProviderProtocol {
     }
     
 }
-

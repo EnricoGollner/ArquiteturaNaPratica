@@ -9,4 +9,14 @@ target 'SwiftArquiteturas' do
 
 pod 'FirebaseAuth'
 
+
+  target 'SwiftArquiteturasTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'SwiftArquiteturasUITests' do
+    # Pods for testing
+  end
+
 end
