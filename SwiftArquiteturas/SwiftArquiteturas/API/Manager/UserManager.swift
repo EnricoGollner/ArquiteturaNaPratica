@@ -29,7 +29,7 @@ class UserManager: UserManagerProtocol {
     func login(email: String, password: String,
                successHandler: @escaping (UserModel) -> Void,
                failureHandler: @escaping (Error) -> Void) {
-        business.register(email: email, password: password) { result in
+        business.login(email: email, password: password) { result in
             switch result {
             case .success(let userModel):
                 successHandler(userModel)

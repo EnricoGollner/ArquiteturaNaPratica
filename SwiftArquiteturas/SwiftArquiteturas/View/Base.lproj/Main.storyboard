@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Register View Controller-->
         <scene sceneID="bPF-9c-LwM">
             <objects>
-                <viewController id="uqK-0j-lOM" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="registerViewController" id="uqK-0j-lOM" customClass="RegisterViewController" customModule="SwiftArquiteturas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lTM-ty-thU">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -49,12 +49,18 @@
                                 <color key="tintColor" red="0.0" green="0.3294117647" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Registrar"/>
+                                <connections>
+                                    <action selector="registerTappedButton:" destination="uqK-0j-lOM" eventType="touchUpInside" id="yLE-l4-Ap0"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLi-F4-MI6">
                                 <rect key="frame" x="55" y="492" width="283" height="34.333333333333371"/>
                                 <color key="tintColor" red="0.0" green="0.3294117647" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Entrar"/>
+                                <connections>
+                                    <action selector="backToLogginTappedButton:" destination="uqK-0j-lOM" eventType="touchUpInside" id="cXy-N3-eVr"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Informe a senha para confirmação" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DG0-Ot-OWj">
                                 <rect key="frame" x="55" y="368" width="283" height="34"/>
@@ -91,15 +97,20 @@
                             <constraint firstItem="0tu-cP-Xtv" firstAttribute="top" secondItem="DG0-Ot-OWj" secondAttribute="bottom" constant="35" id="zzY-Cr-tav"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="87R-WZ-Bpt" id="Fjl-eI-LNu"/>
+                        <outlet property="passwordConfirmationTextField" destination="DG0-Ot-OWj" id="Jl7-Cb-nC5"/>
+                        <outlet property="passwordTextField" destination="4O6-kr-aQ4" id="yOs-de-Own"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dmR-P7-zg1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1457" y="-25"/>
+            <point key="canvasLocation" x="-560" y="-25"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="hkk-cM-kmS">
             <objects>
-                <viewController id="YlM-P0-w8B" sceneMemberID="viewController">
+                <viewController id="YlM-P0-w8B" customClass="LoginViewController" customModule="SwiftArquiteturas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yTl-st-vKC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -125,12 +136,18 @@
                                 <color key="tintColor" red="0.0" green="0.32941176470588235" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Entrar"/>
+                                <connections>
+                                    <action selector="openButtonTapped:" destination="YlM-P0-w8B" eventType="touchUpInside" id="d3Y-WE-rcf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVC-pk-PR3">
                                 <rect key="frame" x="55" y="386.33333333333331" width="283" height="34.333333333333314"/>
                                 <color key="tintColor" red="0.0" green="0.32941176470588235" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Registrar"/>
+                                <connections>
+                                    <action selector="registerButtonTapped:" destination="YlM-P0-w8B" eventType="touchUpInside" id="bX5-Y4-eHw"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKU-PP-IPB">
                                 <rect key="frame" x="55" y="129" width="283" height="21"/>
@@ -163,15 +180,19 @@
                             <constraint firstItem="SdS-qj-6PJ" firstAttribute="trailing" secondItem="ZKU-PP-IPB" secondAttribute="trailing" id="wN1-Vm-6oj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="DCr-yU-2wG" id="YmD-sC-4ai"/>
+                        <outlet property="passwordTextField" destination="Vjj-2L-Me0" id="YQu-91-OET"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dI5-lg-4bx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-632.82442748091603" y="-24.647887323943664"/>
+            <point key="canvasLocation" x="-1340" y="-25"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SwiftArquiteturas" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeViewController" id="BYZ-38-t0r" customClass="HomeViewController" customModule="SwiftArquiteturas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
