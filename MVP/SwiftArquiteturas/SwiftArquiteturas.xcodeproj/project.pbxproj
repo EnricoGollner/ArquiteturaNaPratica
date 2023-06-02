@@ -91,9 +91,6 @@
 		2A276EF32A2853CA00D241AF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2AF675332A25CA8F00A8740D /* HomeViewController.swift */,
-				2A276EF42A2853E200D241AF /* LoginViewController.swift */,
-				2A276EF62A285A4900D241AF /* RegisterViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -158,6 +155,30 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		2A4E14A22A29B68300223BCD /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				2A276EF42A2853E200D241AF /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		2A4E14A32A29B77200223BCD /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				2A276EF62A285A4900D241AF /* RegisterViewController.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		2A4E14A42A29B78300223BCD /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2AF675332A25CA8F00A8740D /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		2AF675232A25CA8F00A8740D = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +234,9 @@
 		2AF6755F2A25CA9600A8740D /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				2A4E14A32A29B77200223BCD /* Register */,
+				2A4E14A22A29B68300223BCD /* Login */,
+				2A4E14A42A29B78300223BCD /* Home */,
 				2AF6752F2A25CA8F00A8740D /* AppDelegate.swift */,
 				2AF675312A25CA8F00A8740D /* SceneDelegate.swift */,
 				2AF675382A25CA9100A8740D /* Assets.xcassets */,

@@ -14,23 +14,15 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBAction func openButtonTapped(_ sender: Any) {
-        let manager = UserManager(business: UserBusiness())
         
-        guard let email = emailTextField.text,
-              let password = passwordTextField.text else { return }
-        
-        manager.login(email: email, password: password) { userModel in
-            self.openHomeView()
-        } failureHandler: { error in
-            self.showMessage(title: "Error", message: error.localizedDescription)
-        }
-
     }
     
     @IBAction func registerButtonTapped(_ sender: Any) {
-        let registerView = self.storyboard?.instantiateViewController(withIdentifier: "registerViewController") as! RegisterViewController
-        registerView.modalPresentationStyle = .fullScreen
-        self.present(registerView, animated: true)
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
     
     func showMessage(title: String, message: String) {
