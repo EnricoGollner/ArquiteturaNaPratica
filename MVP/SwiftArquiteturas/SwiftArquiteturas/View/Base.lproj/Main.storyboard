@@ -11,7 +11,7 @@
         <!--Register View Controller-->
         <scene sceneID="bPF-9c-LwM">
             <objects>
-                <viewController storyboardIdentifier="registerViewController" id="uqK-0j-lOM" customClass="RegisterViewController" customModule="SwiftArquiteturas" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterViewController" id="uqK-0j-lOM" customClass="RegisterViewController" customModule="SwiftArquiteturas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lTM-ty-thU">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,15 +38,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" secureTextEntry="YES"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmação de Senha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTY-DO-4E5">
-                                <rect key="frame" x="55" y="339" width="283" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0tu-cP-Xtv">
-                                <rect key="frame" x="55" y="437" width="283" height="35"/>
-                                <color key="tintColor" red="0.0" green="0.3294117647" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="55" y="658.66666666666663" width="283" height="35"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Registrar"/>
                                 <connections>
@@ -54,7 +48,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLi-F4-MI6">
-                                <rect key="frame" x="55" y="492" width="283" height="34.333333333333371"/>
+                                <rect key="frame" x="55" y="713.66666666666663" width="283" height="34.333333333333371"/>
                                 <color key="tintColor" red="0.0" green="0.3294117647" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Entrar"/>
@@ -67,9 +61,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" secureTextEntry="YES"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmação de Senha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTY-DO-4E5">
+                                <rect key="frame" x="55" y="339" width="283" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WyS-cR-P0O"/>
-                        <color key="backgroundColor" systemColor="systemMintColor"/>
+                        <color key="backgroundColor" systemColor="systemCyanColor"/>
                         <constraints>
                             <constraint firstItem="oy4-J4-dwT" firstAttribute="top" secondItem="87R-WZ-Bpt" secondAttribute="bottom" constant="42" id="41j-3e-4b6"/>
                             <constraint firstItem="DG0-Ot-OWj" firstAttribute="trailing" secondItem="87R-WZ-Bpt" secondAttribute="trailing" id="BaH-Gd-Ko6"/>
@@ -92,9 +92,9 @@
                             <constraint firstItem="PLi-F4-MI6" firstAttribute="top" secondItem="0tu-cP-Xtv" secondAttribute="bottom" constant="20" id="iKx-gT-EfF"/>
                             <constraint firstItem="87R-WZ-Bpt" firstAttribute="top" secondItem="DAq-q1-HbI" secondAttribute="bottom" constant="8" id="pPF-w6-j1c"/>
                             <constraint firstItem="87R-WZ-Bpt" firstAttribute="leading" secondItem="WyS-cR-P0O" secondAttribute="leading" constant="55" id="pQU-w9-am7"/>
+                            <constraint firstItem="WyS-cR-P0O" firstAttribute="bottom" secondItem="PLi-F4-MI6" secondAttribute="bottom" constant="70" id="snW-Yk-Lt6"/>
                             <constraint firstItem="WyS-cR-P0O" firstAttribute="trailing" secondItem="87R-WZ-Bpt" secondAttribute="trailing" constant="55" id="ueZ-Ue-c2X"/>
                             <constraint firstItem="oy4-J4-dwT" firstAttribute="trailing" secondItem="DAq-q1-HbI" secondAttribute="trailing" id="ygz-ep-WaB"/>
-                            <constraint firstItem="0tu-cP-Xtv" firstAttribute="top" secondItem="DG0-Ot-OWj" secondAttribute="bottom" constant="35" id="zzY-Cr-tav"/>
                         </constraints>
                     </view>
                     <connections>
@@ -110,7 +110,7 @@
         <!--Login View Controller-->
         <scene sceneID="hkk-cM-kmS">
             <objects>
-                <viewController id="YlM-P0-w8B" customClass="LoginViewController" customModule="SwiftArquiteturas" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="YlM-P0-w8B" customClass="LoginViewController" customModule="SwiftArquiteturas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yTl-st-vKC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -132,8 +132,8 @@
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gO5-MF-uPS">
-                                <rect key="frame" x="55" y="332" width="283" height="34.333333333333314"/>
-                                <color key="tintColor" red="0.0" green="0.32941176470588235" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="55" y="659.33333333333337" width="283" height="34.333333333333371"/>
+                                <color key="tintColor" red="0.0" green="0.34382148829999998" blue="0.32773998170000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Entrar"/>
                                 <connections>
@@ -141,8 +141,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVC-pk-PR3">
-                                <rect key="frame" x="55" y="386.33333333333331" width="283" height="34.333333333333314"/>
-                                <color key="tintColor" red="0.0" green="0.32941176470588235" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="55" y="713.66666666666663" width="283" height="34.333333333333371"/>
+                                <color key="tintColor" red="0.0" green="0.34382148829999998" blue="0.32773998170000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Registrar"/>
                                 <connections>
@@ -157,7 +157,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Z6G-bi-vRb"/>
-                        <color key="backgroundColor" systemColor="systemMintColor"/>
+                        <color key="backgroundColor" systemColor="systemCyanColor"/>
                         <constraints>
                             <constraint firstItem="DCr-yU-2wG" firstAttribute="leading" secondItem="Z6G-bi-vRb" secondAttribute="leading" constant="55" id="1o3-Av-z1F"/>
                             <constraint firstItem="ZKU-PP-IPB" firstAttribute="top" secondItem="Z6G-bi-vRb" secondAttribute="top" constant="70" id="3GX-HV-7LC"/>
@@ -165,11 +165,11 @@
                             <constraint firstItem="gO5-MF-uPS" firstAttribute="leading" secondItem="DCr-yU-2wG" secondAttribute="leading" id="87l-1e-xyO"/>
                             <constraint firstItem="SdS-qj-6PJ" firstAttribute="top" secondItem="DCr-yU-2wG" secondAttribute="bottom" constant="42" id="8jm-eg-ujr"/>
                             <constraint firstItem="sVC-pk-PR3" firstAttribute="top" secondItem="gO5-MF-uPS" secondAttribute="bottom" constant="20" id="8jt-Ui-udJ"/>
+                            <constraint firstItem="Z6G-bi-vRb" firstAttribute="bottom" secondItem="sVC-pk-PR3" secondAttribute="bottom" constant="70" id="9Ol-Og-Pgk"/>
                             <constraint firstItem="DCr-yU-2wG" firstAttribute="top" secondItem="ZKU-PP-IPB" secondAttribute="bottom" constant="8" id="Coe-Xe-4rl"/>
                             <constraint firstItem="ZKU-PP-IPB" firstAttribute="leading" secondItem="Z6G-bi-vRb" secondAttribute="leading" constant="55" id="ESW-jX-k0W"/>
                             <constraint firstItem="Z6G-bi-vRb" firstAttribute="trailing" secondItem="ZKU-PP-IPB" secondAttribute="trailing" constant="55" id="GyJ-Nq-C6J"/>
                             <constraint firstItem="sVC-pk-PR3" firstAttribute="leading" secondItem="DCr-yU-2wG" secondAttribute="leading" id="Hal-yD-Phd"/>
-                            <constraint firstItem="gO5-MF-uPS" firstAttribute="top" secondItem="Vjj-2L-Me0" secondAttribute="bottom" constant="35" id="Ls4-Gi-eui"/>
                             <constraint firstItem="Vjj-2L-Me0" firstAttribute="top" secondItem="SdS-qj-6PJ" secondAttribute="bottom" constant="8" id="Q8p-DS-s83"/>
                             <constraint firstItem="sVC-pk-PR3" firstAttribute="trailing" secondItem="DCr-yU-2wG" secondAttribute="trailing" id="Rcd-K3-AJs"/>
                             <constraint firstItem="gO5-MF-uPS" firstAttribute="trailing" secondItem="DCr-yU-2wG" secondAttribute="trailing" id="akK-fd-czj"/>
@@ -192,7 +192,7 @@
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="homeViewController" id="BYZ-38-t0r" customClass="HomeViewController" customModule="SwiftArquiteturas" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="BYZ-38-t0r" customClass="HomeViewController" customModule="SwiftArquiteturas" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -205,7 +205,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemMintColor"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
                         <constraints>
                             <constraint firstItem="rd5-RF-mnr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0Yr-0W-g2a"/>
                             <constraint firstItem="rd5-RF-mnr" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Wzf-Hh-Nls"/>
@@ -218,8 +218,11 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemMintColor">
-            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemCyanColor">
+            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
