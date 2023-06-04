@@ -22,7 +22,9 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func registerButtonTapped(_ sender: Any) {
-        presenter.goRegister()
+        let register = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
+        register.modalPresentationStyle = .fullScreen
+        self.present(register, animated: true)
     }
     
     override func viewDidLoad() {
@@ -32,7 +34,7 @@ class LoginViewController: UIViewController {
     
 }
 
-extension LoginViewController: LoginPresenterDelegate {
+extension LoginViewController: LoginPresenterProtocol {
     func goHome() {
         let home = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         home.modalPresentationStyle = .fullScreen
@@ -45,11 +47,4 @@ extension LoginViewController: LoginPresenterDelegate {
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
-    
-    func goRegister() {
-        let register = self.storyboard?.instantiateViewController(withIdentifier: "RegisterViewController") as! RegisterViewController
-        register.modalPresentationStyle = .fullScreen
-        self.present(register, animated: true)
-    }
-    
 }

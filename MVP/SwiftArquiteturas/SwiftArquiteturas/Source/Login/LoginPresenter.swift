@@ -7,16 +7,15 @@
 
 import Foundation
 
-protocol LoginPresenterDelegate: AnyObject {
+protocol LoginPresenterProtocol: AnyObject {
     func goHome()
     func showMessage(title: String, message: String)
-    func goRegister()
 }
 
 class LoginPresenter {
-    private weak var delegate: LoginPresenterDelegate?
+    private weak var delegate: LoginPresenterProtocol?
     
-    public func delegate(delegate: LoginPresenterDelegate) {
+    public func delegate(delegate: LoginPresenterProtocol) {
         self.delegate = delegate
     }
     
@@ -28,9 +27,5 @@ class LoginPresenter {
         } failureHandler: { [weak self] error in
             self?.delegate?.showMessage(title: "Erro", message: error.localizedDescription)
         }
-    }
-    
-    public func goRegister() {
-        self.delegate?.goRegister()
     }
 }

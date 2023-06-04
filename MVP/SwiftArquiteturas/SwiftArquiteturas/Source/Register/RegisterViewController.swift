@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class RegisterViewController: UIViewController {
+    private let presenter: RegisterPresenter = RegisterPresenter()
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -16,28 +17,40 @@ class RegisterViewController: UIViewController {
     
     
     @IBAction func registerTappedButton(_ sender: Any) {
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text,
+              let passwordConfirm = passwordConfirmationTextField.text else { return }
         
+        if password == passwordConfirm {
+            self.presenter.register(userModel: UserModel(email: email, password: password))
+        } else {
+            self.showMessage(title: "Error", message: "As senhas não conferem!")
+        }
     }
     
     @IBAction func backToLogginTappedButton(_ sender: Any) {
-        
+        self.dismiss(animated: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.delegate(delegate: self)
     }
-    
-    private func showMessage(title: String, message: String) {
+}
+
+
+extension RegisterViewController: RegisterPresenterProtocol {
+    public func showMessage(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         self.present(alert, animated: true)
     }
     
-    private func openHomeView() {
-        let homeView = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-        homeView.modalPresentationStyle = .fullScreen
-        self.present(homeView, animated: true)
+    public func goHome() {
+        let home = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        home.modalPresentationStyle = .fullScreen
+        self.present(home, animated: true)
     }
+    
+    
 }
