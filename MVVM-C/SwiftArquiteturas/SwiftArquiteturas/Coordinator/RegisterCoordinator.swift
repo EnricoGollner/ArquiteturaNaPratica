@@ -1,5 +1,5 @@
 //
-//  LoginCoordinator.swift
+//  RegisterCoordinator.swift
 //  SwiftArquiteturas
 //
 //  Created by Enrico Sousa Gollner on 06/06/23.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class LoginCoordinator: Coordinator {
+class RegisterCoordinator: Coordinator {
     var navigationController: UINavigationController
     
     required init(navigationController: UINavigationController) {
@@ -16,7 +16,9 @@ class LoginCoordinator: Coordinator {
     }
     
     func start() {
-        let viewController = LoginViewController()
-        self.navigationController.pushViewController(viewController, animated: true)
+        let registerViewController = RegisterViewController()
+        self.navigationController.pushViewController(registerViewController, animated: true)
     }
+    
+    
 }

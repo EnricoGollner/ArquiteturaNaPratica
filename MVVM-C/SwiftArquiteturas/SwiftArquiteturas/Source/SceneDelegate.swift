@@ -19,17 +19,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         self.window = UIWindow(windowScene: windowScene)
-        self.window?.rootViewController = ViewController()
         self.window?.makeKeyAndVisible()
         
         let navigationController = UINavigationController()
+        navigationController.navigationBar.prefersLargeTitles = true
         navigationController.navigationBar.backgroundColor = .viewBackgroundColor
         
         self.window?.rootViewController = navigationController
         
         let coordinator = LoginCoordinator(navigationController: navigationController)
-        
         coordinator.start()
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
