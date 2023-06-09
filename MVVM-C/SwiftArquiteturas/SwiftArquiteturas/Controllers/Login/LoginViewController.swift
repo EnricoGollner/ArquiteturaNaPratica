@@ -13,6 +13,7 @@ class LoginViewController: UIViewController {
     // MARK: Properties
     lazy var loginView: LoginView = {
         let view = LoginView(frame: .zero)
+        
         return view
     }()
     
@@ -23,5 +24,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Login"
     }
 }

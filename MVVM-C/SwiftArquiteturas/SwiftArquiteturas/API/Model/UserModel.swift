@@ -10,7 +10,7 @@ import Foundation
 struct UserModel: Codable {
     // dessa forma, podemos pegar os valores, porém não podemos setá-los a não ser que por um de seus inicializadores (mais seguro)
     
-    let email: String
+    var email: String
     let password: String
     
     init() {  // evitamos preocupação com ficarem nil

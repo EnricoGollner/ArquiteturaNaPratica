@@ -16,7 +16,8 @@ class LoginCoordinator: Coordinator {
     }
     
     func start() {
-        let viewController = LoginViewController()
-        self.navigationController.pushViewController(viewController, animated: true)
+        navigationController.pushViewController(LoginViewController(), animated: true)
     }
+    
+    
 }
