@@ -2,21 +2,32 @@
 //  RegisterCoordinator.swift
 //  SwiftArquiteturas
 //
-//  Created by Enrico Sousa Gollner on 06/06/23.
+//  Created by Enrico Sousa Gollner on 11/06/23.
 //
 
 import Foundation
 import UIKit
 
 class RegisterCoordinator: Coordinator {
-    var navigationController: UINavigationController
+    public var navigationController: UINavigationController
     
     required init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
-    func start() {
+    public func start() {
         let registerViewController = RegisterViewController()
+        
+        registerViewController.loginTapped = {
+            self.navigationController.popToRootViewController(animated: true)
+        }
+        
+        registerViewController.onRegisterSuccess = {
+            let homeCoordinator = HomeCoordinator(navigationController: self.navigationController)
+            homeCoordinator.start()
+            print(#function)
+        }
+        
         self.navigationController.pushViewController(registerViewController, animated: true)
     }
     

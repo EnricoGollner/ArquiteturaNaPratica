@@ -16,8 +16,19 @@ class LoginCoordinator: Coordinator {
     }
     
     func start() {
-        navigationController.pushViewController(LoginViewController(), animated: true)
+        let loginViewController = LoginViewController()
+        
+        loginViewController.onRegisterTapped = {
+            let registerCoordinator = RegisterCoordinator(navigationController: self.navigationController)  // Passando UINavigationController que foi passado ao LoginCoordinator, o mesmo Navigation que foi definido como RootViewController no SceneDelegate.
+            registerCoordinator.start()
+        }
+        
+        loginViewController.onLoginSuccess = {
+            let homeCoordinator = HomeCoordinator(navigationController: self.navigationController)
+            homeCoordinator.start()
+        }
+        
+        navigationController.pushViewController(loginViewController, animated: true)
     }
-    
     
 }
