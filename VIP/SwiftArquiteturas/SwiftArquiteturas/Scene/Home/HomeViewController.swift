@@ -12,8 +12,7 @@
 
 import UIKit
 
-protocol HomeDisplayLogic: class
-{
+protocol HomeDisplayLogic: AnyObject {
   func displaySomething(viewModel: Home.Something.ViewModel)
 }
 
@@ -23,7 +22,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic
   var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
 
   // MARK: Object lifecycle
-  
+    
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
   {
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -65,14 +64,22 @@ class HomeViewController: UIViewController, HomeDisplayLogic
   }
   
   // MARK: View lifecycle
+    
+    override func loadView() {
+        self.view = homeView
+    }
   
-  override func viewDidLoad()
-  {
+  
+  override func viewDidLoad() {
     super.viewDidLoad()
     doSomething()
   }
   
   // MARK: Do something
+    lazy var homeView: HomeView = {
+        let view = HomeView(frame: .zero)
+        return view
+    }()
   
   //@IBOutlet weak var nameTextField: UITextField!
   
