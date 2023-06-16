@@ -66,16 +66,22 @@ class RegisterViewController: UIViewController, RegisterDisplayLogic
     
     // MARK: View lifecycle
     
+    override func loadView() {
+        self.view = registerView
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.view.backgroundColor = .yellow
+        self.title = "Register"
         doSomething()
     }
     
     // MARK: Do something
-    
-    //@IBOutlet weak var nameTextField: UITextField!
+    lazy var registerView: RegisterView = {
+        let view = RegisterView(frame: .zero)
+        return view
+    }()
     
     func doSomething()
     {

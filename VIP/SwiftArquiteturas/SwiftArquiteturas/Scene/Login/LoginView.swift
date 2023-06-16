@@ -1,5 +1,5 @@
 //
-//  RegisterView.swift
+//  LoginView.swift
 //  SwiftArquiteturas
 //
 //  Created by Enrico Sousa Gollner on 15/06/23.
@@ -7,15 +7,12 @@
 
 import UIKit
 
-class RegisterView: UIView {
+class LoginView: UIView {
+    //MARK: - Closures
+    public var onRegisterTapped: (() -> Void)?
+    public var onLoginTapped: ((_ userModel: UserModel) -> Void)?
     
-    //MARK: Closures
-    public var onLoginTapped: (() -> Void)?
-    public var onRegisterTapped: ((_ email: String, _ password: String) -> Void)?
-    
-    
-    //MARK: Properties
-    
+    //MARK: - Properties
     lazy var emailLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -37,7 +34,8 @@ class RegisterView: UIView {
         textField.layer.borderWidth = 1
         
         textField.backgroundColor = .lightText
-        textField.textColor = .gray
+        textField.textColor = .black
+        textField.autocapitalizationType = .none
         
         textField.setLeftPaddingPoints(15)
         textField.placeholder = "Endereço de e-mail"
@@ -64,40 +62,26 @@ class RegisterView: UIView {
         textField.layer.borderWidth = 1
         
         textField.backgroundColor = .lightText
-        textField.textColor = .gray
+        textField.textColor = .black
+        textField.autocapitalizationType = .none
+        textField.isSecureTextEntry = true
         
         textField.setLeftPaddingPoints(15)
         textField.placeholder = "Informe a Senha"
-        textField.isSecureTextEntry = true
         
         return textField
     }()
     
-    lazy var passwordConfirmationLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Confirme sua senha"
+    lazy var loginButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Entrar", for: .normal)
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 10
         
-        return label
-    }()
-    
-    lazy var passwordConfirmationTextField: UITextField = {
-        let textField = UITextField()
-        textField.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         
-        textField.clipsToBounds = true
-        textField.layer.cornerRadius = 5
-        textField.layer.borderColor = UIColor.black.cgColor
-        textField.layer.borderWidth = 1
-        
-        textField.backgroundColor = .lightText
-        textField.textColor = .gray
-        
-        textField.setLeftPaddingPoints(15)
-        textField.placeholder = "Confirme sua Senha"
-        textField.isSecureTextEntry = true
-        
-        return textField
+        return button
     }()
     
     lazy var registerButton: UIButton = {
@@ -113,46 +97,30 @@ class RegisterView: UIView {
         return button
     }()
     
-    lazy var loginButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Entrar", for: .normal)
-        button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 10
-        
-        button.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
-        
-        return button
-    }()
-    
-    
-    //MARK: - Initializers
+    //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .viewBackgroundColor
         
-        addViews()
-        configConstraints()
+        setUpVisualElements()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - Set Visual Elements
-    private func addViews() {
-        self.addSubview(emailLabel)
-        self.addSubview(emailTextField)
-        self.addSubview(passwordLabel)
-        self.addSubview(passwordTextField)
-        self.addSubview(passwordConfirmationLabel)
-        self.addSubview(passwordConfirmationTextField)
-        self.addSubview(registerButton)
-        self.addSubview(loginButton)
+    //MARK: - Constraints (Seguindo pincípio da responsabilidade única)
+    private func setUpVisualElements() {
+        setEmail()
+        setPassword()
+        setLoginButton()
+        setRegisterButton()
     }
     
-    //MARK: - Set Constraints
-    private func configConstraints() {
+    private func setEmail() {
+        self.addSubview(emailLabel)
+        self.addSubview(emailTextField)
+        
         NSLayoutConstraint.activate([
             emailLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 40),
             emailLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
@@ -163,6 +131,14 @@ class RegisterView: UIView {
             emailTextField.trailingAnchor.constraint(equalTo: emailLabel.trailingAnchor),
             emailTextField.heightAnchor.constraint(equalToConstant: 40),
             
+        ])
+    }
+    
+    private func setPassword() {
+        self.addSubview(passwordLabel)
+        self.addSubview(passwordTextField)
+        
+        NSLayoutConstraint.activate([
             passwordLabel.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 20),
             passwordLabel.leadingAnchor.constraint(equalTo: emailLabel.leadingAnchor),
             passwordLabel.trailingAnchor.constraint(equalTo: emailLabel.trailingAnchor),
@@ -171,40 +147,40 @@ class RegisterView: UIView {
             passwordTextField.leadingAnchor.constraint(equalTo: emailLabel.leadingAnchor),
             passwordTextField.trailingAnchor.constraint(equalTo: emailLabel.trailingAnchor),
             passwordTextField.heightAnchor.constraint(equalToConstant: 40),
-            
-            passwordConfirmationLabel.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20),
-            passwordConfirmationLabel.leadingAnchor.constraint(equalTo: emailLabel.leadingAnchor),
-            passwordConfirmationLabel.trailingAnchor.constraint(equalTo: emailLabel.trailingAnchor),
-            
-            passwordConfirmationTextField.topAnchor.constraint(equalTo: passwordConfirmationLabel.bottomAnchor, constant: 10),
-            passwordConfirmationTextField.leadingAnchor.constraint(equalTo: emailLabel.leadingAnchor),
-            passwordConfirmationTextField.trailingAnchor.constraint(equalTo: emailLabel.trailingAnchor),
-            passwordConfirmationTextField.heightAnchor.constraint(equalToConstant: 40),
-            
-            registerButton.topAnchor.constraint(equalTo: passwordConfirmationTextField.bottomAnchor, constant: 40),
-            registerButton.leadingAnchor.constraint(equalTo: emailLabel.leadingAnchor),
-            registerButton.trailingAnchor.constraint(equalTo: emailLabel.trailingAnchor),
-            registerButton.heightAnchor.constraint(equalToConstant: 40),
-            
-            loginButton.topAnchor.constraint(equalTo: registerButton.bottomAnchor, constant: 20),
+        ])
+    }
+    
+    public func setLoginButton() {
+        self.addSubview(loginButton)
+        
+        NSLayoutConstraint.activate([
+            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 40),
             loginButton.leadingAnchor.constraint(equalTo: emailLabel.leadingAnchor),
             loginButton.trailingAnchor.constraint(equalTo: emailLabel.trailingAnchor),
             loginButton.heightAnchor.constraint(equalToConstant: 40),
-            
+        ])
+    }
+    
+    public func setRegisterButton() {
+        self.addSubview(registerButton)
+        
+        NSLayoutConstraint.activate([
+            registerButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20),
+            registerButton.leadingAnchor.constraint(equalTo: emailLabel.leadingAnchor),
+            registerButton.trailingAnchor.constraint(equalTo: emailLabel.trailingAnchor),
+            registerButton.heightAnchor.constraint(equalToConstant: 40),
         ])
     }
     
     //MARK: - Actions
-    
     @objc func loginButtonTapped() {
-        self.onLoginTapped?()
+        guard let email = emailTextField.text, let password = passwordTextField.text else { return }
+        
+        let userModel = UserModel(email: email, password: password)
+        self.onLoginTapped?(userModel)
     }
     
     @objc func registerButtonTapped() {
-        guard let email = emailTextField.text,
-              let password = self.passwordTextField.text else { return }
-        
-        self.onRegisterTapped?(email, password)
+        self.onRegisterTapped?()
     }
-    
 }

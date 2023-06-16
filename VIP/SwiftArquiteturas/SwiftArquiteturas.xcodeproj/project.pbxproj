@@ -68,13 +68,13 @@
 		2A57F67F2A397ABF000FE344 /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
 		2A57F6802A397ABF000FE344 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2A57F6812A397ABF000FE344 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
-		2A5B49452A3BCC0F00ABEB91 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginPresenter.swift; path = ../../../../../../../../../LoginPresenter.swift; sourceTree = "<group>"; };
-		2A5B49462A3BCC0F00ABEB91 /* LoginWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginWorker.swift; path = ../../../../../../../../../LoginWorker.swift; sourceTree = "<group>"; };
-		2A5B49472A3BCC0F00ABEB91 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginRouter.swift; path = ../../../../../../../../../LoginRouter.swift; sourceTree = "<group>"; };
-		2A5B49482A3BCC0F00ABEB91 /* LoginModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginModels.swift; path = ../../../../../../../../../LoginModels.swift; sourceTree = "<group>"; };
-		2A5B49492A3BCC0F00ABEB91 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../../../../../../../../../LoginViewController.swift; sourceTree = "<group>"; };
-		2A5B494A2A3BCC0F00ABEB91 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginInteractor.swift; path = ../../../../../../../../../LoginInteractor.swift; sourceTree = "<group>"; };
-		2A5B49522A3BCC4200ABEB91 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginView.swift; path = ../../../../../../../../../LoginView.swift; sourceTree = "<group>"; };
+		2A5B49452A3BCC0F00ABEB91 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginPresenter.swift; path = Login/LoginPresenter.swift; sourceTree = "<group>"; };
+		2A5B49462A3BCC0F00ABEB91 /* LoginWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginWorker.swift; path = Login/LoginWorker.swift; sourceTree = "<group>"; };
+		2A5B49472A3BCC0F00ABEB91 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginRouter.swift; path = Login/LoginRouter.swift; sourceTree = "<group>"; };
+		2A5B49482A3BCC0F00ABEB91 /* LoginModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginModels.swift; path = Login/LoginModels.swift; sourceTree = "<group>"; };
+		2A5B49492A3BCC0F00ABEB91 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Login/LoginViewController.swift; sourceTree = "<group>"; };
+		2A5B494A2A3BCC0F00ABEB91 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginInteractor.swift; path = Login/LoginInteractor.swift; sourceTree = "<group>"; };
+		2A5B49522A3BCC4200ABEB91 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginView.swift; path = Login/LoginView.swift; sourceTree = "<group>"; };
 		2A5B49542A3BD5FE00ABEB91 /* RegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
 		2A5B49552A3BD5FE00ABEB91 /* RegisterWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWorker.swift; sourceTree = "<group>"; };
 		2A5B49562A3BD5FE00ABEB91 /* RegisterRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRouter.swift; sourceTree = "<group>"; };
@@ -212,7 +212,7 @@
 				2A5B494A2A3BCC0F00ABEB91 /* LoginInteractor.swift */,
 				2A5B49522A3BCC4200ABEB91 /* LoginView.swift */,
 			);
-			path = Login;
+			name = Login;
 			sourceTree = "<group>";
 		};
 		2A5B49512A3BCC1D00ABEB91 /* Register */ = {
