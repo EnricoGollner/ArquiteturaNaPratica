@@ -11,7 +11,7 @@ class RegisterView: UIView {
     
     //MARK: Closures
     public var onLoginTapped: (() -> Void)?
-    public var onRegisterTapped: ((_ email: String, _ password: String) -> Void)?
+    public var onRegisterTapped: ((_ userModel: UserModel) -> Void)?
     
     
     //MARK: Properties
@@ -39,9 +39,11 @@ class RegisterView: UIView {
         textField.backgroundColor = .lightText
         textField.textColor = .gray
         
+        
         textField.setLeftPaddingPoints(15)
         textField.placeholder = "Endereço de e-mail"
         textField.keyboardType = .emailAddress
+        textField.autocapitalizationType = .none
         
         return textField
     }()
@@ -69,6 +71,7 @@ class RegisterView: UIView {
         textField.setLeftPaddingPoints(15)
         textField.placeholder = "Informe a Senha"
         textField.isSecureTextEntry = true
+        textField.autocapitalizationType = .none
         
         return textField
     }()
@@ -96,6 +99,7 @@ class RegisterView: UIView {
         textField.setLeftPaddingPoints(15)
         textField.placeholder = "Confirme sua Senha"
         textField.isSecureTextEntry = true
+        textField.autocapitalizationType = .none
         
         return textField
     }()
@@ -131,8 +135,7 @@ class RegisterView: UIView {
         super.init(frame: frame)
         self.backgroundColor = .viewBackgroundColor
         
-        addViews()
-        configConstraints()
+        setVisualElements()
     }
     
     required init?(coder: NSCoder) {
@@ -140,7 +143,7 @@ class RegisterView: UIView {
     }
     
     //MARK: - Set Visual Elements
-    private func addViews() {
+    private func setVisualElements() {
         self.addSubview(emailLabel)
         self.addSubview(emailTextField)
         self.addSubview(passwordLabel)
@@ -149,6 +152,8 @@ class RegisterView: UIView {
         self.addSubview(passwordConfirmationTextField)
         self.addSubview(registerButton)
         self.addSubview(loginButton)
+        
+        configConstraints()
     }
     
     //MARK: - Set Constraints
@@ -195,16 +200,25 @@ class RegisterView: UIView {
     }
     
     //MARK: - Actions
+    @objc func registerButtonTapped() {
+        guard let email = emailTextField.text,
+              let password = self.passwordTextField.text,
+              let passwordConfirmation = self.passwordConfirmationTextField.text else { return }
+        
+        if email.count < 1 {
+            // Mensagem avisando que o e-mail está vazio.
+            print("E-mail vazio")
+        } else if password.count < 1 {
+            print("Password vazia")
+        } else if password != passwordConfirmation {
+            print("As senhas não conferem")
+        } else {
+            self.onRegisterTapped?(UserModel(email: email, password: password))
+        }
+    }
+    
     
     @objc func loginButtonTapped() {
         self.onLoginTapped?()
     }
-    
-    @objc func registerButtonTapped() {
-        guard let email = emailTextField.text,
-              let password = self.passwordTextField.text else { return }
-        
-        self.onRegisterTapped?(email, password)
-    }
-    
 }

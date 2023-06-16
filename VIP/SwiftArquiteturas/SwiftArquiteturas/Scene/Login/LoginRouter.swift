@@ -34,14 +34,14 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing
     func routeToHome()
     {
         let destinationVC = HomeViewController()
-        navigateToPush(source: viewController!, destination: destinationVC)
+        navigateToModal(source: self.viewController!, destination: destinationVC)
         
     }
     
     func routeToRegister()
     {
         let destinationVC = RegisterViewController()
-        navigateToPush(source: viewController!, destination: destinationVC)
+        navigateToPush(source: self.viewController!, destination: destinationVC)
     }
     
     // MARK: Navigation
@@ -53,9 +53,9 @@ class LoginRouter: NSObject, LoginRoutingLogic, LoginDataPassing
     
     // MARK: Passing data
     
-    func passDataToModal(source: LoginDataStore, destination: UIViewController)
+    func navigateToModal(source: LoginViewController, destination: UIViewController)
     {
-//        destination.modalPresentationStyle = .fullScreen
-//        source.showDetailViewController(destination, sender: source)
+        destination.modalPresentationStyle = .fullScreen
+        source.present(destination, animated: true)
     }
 }

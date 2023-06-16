@@ -14,47 +14,40 @@ import UIKit
 
 @objc protocol RegisterRoutingLogic
 {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToHome()
+    func routeToLogin()
 }
 
 protocol RegisterDataPassing
 {
-  var dataStore: RegisterDataStore? { get }
+    var dataStore: RegisterDataStore? { get }
 }
 
 class RegisterRouter: NSObject, RegisterRoutingLogic, RegisterDataPassing
 {
-  weak var viewController: RegisterViewController?
-  var dataStore: RegisterDataStore?
-  
-  // MARK: Routing
-  
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
-
-  // MARK: Navigation
-  
-  //func navigateToSomewhere(source: RegisterViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
-  
-  // MARK: Passing data
-  
-  //func passDataToSomewhere(source: RegisterDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+    
+    weak var viewController: RegisterViewController?
+    var dataStore: RegisterDataStore?
+    
+    // MARK: Routing
+    
+    func routeToHome() {
+        let destinationVC = HomeViewController()
+        navigateToHome(source: viewController!, destination: destinationVC)
+    }
+    
+    func routeToLogin() {
+        self.navigateToLogin()
+    }
+    
+    // MARK: Navigation
+    
+    func navigateToHome(source: RegisterViewController, destination: UIViewController){
+        destination.modalPresentationStyle = .fullScreen
+        source.navigationController?.pushViewController(destination, animated: true)
+    }
+    
+    func navigateToLogin() {
+        self.viewController?.navigationController?.popToRootViewController(animated: true)
+    }
 }

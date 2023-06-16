@@ -15,6 +15,7 @@ import UIKit
 protocol RegisterDisplayLogic: AnyObject
 {
     func displaySomething(viewModel: Register.Something.ViewModel)
+    func displayError(error: Register.Something.ViewError)
 }
 
 class RegisterViewController: UIViewController, RegisterDisplayLogic
@@ -74,23 +75,41 @@ class RegisterViewController: UIViewController, RegisterDisplayLogic
     {
         super.viewDidLoad()
         self.title = "Register"
-        doSomething()
+        
     }
     
     // MARK: Do something
+    
     lazy var registerView: RegisterView = {
         let view = RegisterView(frame: .zero)
+        
+        view.onRegisterTapped = { [weak self] userModel in
+            if let self {
+                self.registerTapped(userModel: userModel)
+            }
+        }
+        
         return view
     }()
     
-    func doSomething()
+    func displaySomething(viewModel: Register.Something.ViewModel)
     {
-        let request = Register.Something.Request()
+        router?.routeToHome()
+    }
+    
+    func displayError(error: Register.Something.ViewError) {
+        let errorMsg = error.error.localizedDescription
+        
+        let alert = UIAlertController(title: "Error", message: errorMsg, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
+        
+        self.present(alert, animated: true)
+    }
+    
+    func registerTapped(userModel: UserModel) {
+        let request = Register.Something.Request(userModel: userModel)
         interactor?.doSomething(request: request)
     }
     
-    func displaySomething(viewModel: Register.Something.ViewModel)
-    {
-        //nameTextField.text = viewModel.name
-    }
+    
 }

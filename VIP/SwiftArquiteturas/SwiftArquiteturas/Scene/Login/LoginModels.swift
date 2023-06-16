@@ -20,19 +20,19 @@ enum Login
     {
         struct Request
         {
-            var userModel: UserModel
+            public var userModel: UserModel
         }
         struct Response
         {
-            var userModel: UserModel
+            public var userModel: UserModel
         }
         struct ViewModel
         {
-            var userModel: UserModel
+            public var userModel: UserModel
         }
         struct ViewError: Error
         {
-            var error: Error
+            public var error: Error
         }
     }
 }
